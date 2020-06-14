@@ -1,0 +1,11 @@
+body {
+    background-color: #ffedcf;
+}
+h1[class="wel"] {
+text-align: center;
+}
+.pls {
+top: 30px;
+position: absolute;
+width: 50px;
+}
