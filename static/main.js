@@ -1,13 +1,13 @@
-function makeId(length) {
+
    var result           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
    var charactersLength = characters.length;
+function makeId(length) {
    for ( var i = 0; i < length; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
    }
    return result;
 }
-
 
 function addRow(){
 var div = document.createElement('div');
@@ -36,7 +36,11 @@ box.appendChild(div);
 
 function onInput(){
 velem = document.querySelector(`p[id="${this.id}"]`)
-velem.innerHTML = `\\[${this.value}\\]`
+text = encodeURIComponent(this.value);
+var request = new XMLHttpRequest();
+request.open('GET', `/get?val=${text}`);
+request.onreadystatechange = (e) => {velem.innerHTML = request.responseText}
+request.send()
 }
 function removeLine(n){
 

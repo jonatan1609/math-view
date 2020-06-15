@@ -1,5 +1,7 @@
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, request
 import os 
+import asciimathml
+from xml.etree.ElementTree import tostring
 
 
 app = Flask(__name__)
@@ -12,8 +14,13 @@ def main_page():
 
 @app.route('/favicon.ico')
 def favicon():
-   return send_from_directory(os.path.join(app.root_path, 'static'),
+    return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/png')
+
+
+@app.route('/get')
+def get():
+    return tostring(asciimathml.parse(request.args['val'])).decode()
 
 
 if __name__ == '__main__':
