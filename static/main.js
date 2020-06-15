@@ -39,7 +39,7 @@ velem = document.querySelector(`p[id="${this.id}"]`)
 text = encodeURIComponent(this.value);
 var request = new XMLHttpRequest();
 request.open('GET', `/get?val=${text}`);
-request.onreadystatechange = (e) => {velem.innerHTML = request.responseText}
+request.onreadystatechange = (e) => {if(request.status!=500){velem.innerHTML = request.responseText}}
 request.send()
 }
 function removeLine(n){
