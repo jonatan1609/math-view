@@ -4,8 +4,25 @@ body {
 h1[class="wel"] {
 text-align: center;
 }
+#p{
+display: inline-block;
+position: absolute;
+top: 55px;
+}
+#d{
+margin-left:-50px;
+}
 .pls {
 top: 30px;
 position: absolute;
 width: 50px;
+}
+.btn1 {
+width: 30px;
+height: 30px;
+background-color: red;
+}
+
+.active {
+background-color: green;
 }

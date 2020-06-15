@@ -39,7 +39,7 @@ velem = document.querySelector(`p[id="${this.id}"]`)
 text = encodeURIComponent(this.value);
 var request = new XMLHttpRequest();
 request.open('GET', `/get?val=${text}`);
-request.onreadystatechange = (e) => {if(request.status!=500){velem.innerHTML = request.responseText}}
+request.onreadystatechange = (e) => {if(request.status == 200){velem.innerHTML = request.responseText}}
 request.send()
 }
 function removeLine(n){
@@ -48,3 +48,15 @@ let x = document.getElementById('inputs');
 for(node of x.childNodes){
 if(node.id == n){x.removeChild(node)}
 }}
+function click1(){
+o = document.getElementById("b");
+p = document.getElementById("p");
+if (o.className.includes("active")){
+  o.className = "btn1";
+   p.innerText = "Mode 1";
+  }
+ else {
+ o.className += " active";
+ p.innerText = "Mode 2";
+ }
+}
