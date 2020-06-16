@@ -21,7 +21,7 @@ function addRowMode1(){
     element.id = makeId(20);
     element.oninput = onInput;
     div.id = element.id;
-    div.style = "width:50%;transform: translateX(50%)";
+    div.style = "width:50%;";
     aTag.href = `javascript:removeLine('${element.id}')`;
     aTag.appendChild(image);
     image.src = "/static/minus-ico.png";
@@ -43,14 +43,14 @@ function addRowMode2(){
     var dimage = document.createElement('img');
     var pimage = document.createElement('img');
     var view = document.createElement('h4');
-    div.style = "width:50%;transform: translateX(50%)";
+    div.style = "width:50%";
     dimage.src = "/static/minus-ico.png";
     pimage.src = "/static/arrow.png";
     pimage.alt = "press here to edit";
     dimage.alt = "remove line";
     dimage.style = "width:30px;top:10px;display: inline-block;position:relative;";
-    pimage.style = "width:30px;top:10px;display: inline-block;position:relative;";
-    view.style = "display: inline-block;margin-left:30px;color:black;";
+    pimage.style = "width:30px;top:10px;display: inline-block;position:relative;margin-right:5px;";
+    view.style = "display: inline-block;color:black;";
     view.id = makeId(20);
     aTag1.href = `javascript:edit('${view.id}')`;
     aTag.href = `javascript:removeLine('${view.id}')`;
@@ -120,19 +120,15 @@ function click1(){
 
 function addMode2Box(){
     var box = document.getElementById('mbox');
-    var button = document.createElement('button');
     var container = document.getElementById('d');
     if(box === null){
         box = document.createElement('input');
         box.id = "mbox";
         box.style = "margin-top:5px;margin-left:60px;";
-        button.setAttribute('onclick', 'boxClick()');
-        button.innerText = "Done";
+        box.setAttribute('oninput', 'boxWrite()');
         container.appendChild(line);
         container.appendChild(document.createElement('hr'));
         container.appendChild(box);
-        container.appendChild(button);
-
     }
 }
 
@@ -141,7 +137,7 @@ function edit(vid) {
     mbox.setAttribute('to', vid);
 }
 
-function boxClick() {
+function boxWrite() {
     var h4 = mbox.getAttribute('to');
     var request = new XMLHttpRequest();
     var velem, text;
