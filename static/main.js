@@ -120,15 +120,19 @@ function click1(){
 
 function addMode2Box(){
     var box = document.getElementById('mbox');
+    var button = document.createElement('button');
     var container = document.getElementById('d');
     if(box === null){
         box = document.createElement('input');
         box.id = "mbox";
-        box.setAttribute("onclick", "boxClick()");
         box.style = "margin-top:5px;margin-left:60px;";
+        button.setAttribute('onclick', 'boxClick()');
+        button.innerText = "Done";
         container.appendChild(line);
         container.appendChild(document.createElement('hr'));
         container.appendChild(box);
+        container.appendChild(button);
+
     }
 }
 
@@ -138,5 +142,16 @@ function edit(vid) {
 }
 
 function boxClick() {
-    console.log(mbox.getAttribute('to'));
+    var h4 = mbox.getAttribute('to');
+    var request = new XMLHttpRequest();
+    var velem, text;
+    velem = document.querySelector(`h4[id="${h4}"]`)
+    text = encodeURIComponent(mbox.value);
+    request.open('GET', `/get?val=${text}`);
+    request.onreadystatechange = (e) => {
+        if (request.status === 200){
+            velem.innerHTML = request.responseText;
+        }
+    }
+    request.send()
 }
