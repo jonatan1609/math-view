@@ -2,27 +2,35 @@ body {
     background-color: #ffedcf;
 }
 h1[class="wel"] {
-text-align: center;
+    text-align: center;
 }
 #p{
-display: inline-block;
-position: absolute;
-top: 55px;
+    display: inline-block;
+    position: absolute;
+    top: 55px;
+}
+.wel {
+    cursor: default;
 }
 #d{
-margin-left:-50px;
+    margin-left:-50px;
 }
 .pls {
-top: 30px;
-position: absolute;
-width: 50px;
+    top: 30px;
+    position: absolute;
+    width: 50px;
 }
 .btn1 {
-width: 30px;
-height: 30px;
-background-color: red;
+    width: 30px;
+    height: 30px;
+    margin-top: 2px;
+    background-color: #cd3f3f;
+    border-radius: 20px 20px 20px 20px;
+    border: none;
+    margin-right: 3px;
+    cursor: pointer;
 }
 
 .active {
-background-color: green;
+    background-color: #67e867;
 }
