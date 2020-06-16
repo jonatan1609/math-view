@@ -9,7 +9,7 @@ h1[class="wel"] {
     position: absolute;
     top: 55px;
 }
-.wel {
+.wel, #p {
     cursor: default;
 }
 #d{
